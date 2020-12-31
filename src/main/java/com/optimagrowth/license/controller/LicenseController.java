@@ -17,6 +17,11 @@ public class LicenseController {
         this.licenseService = licenseService;
     }
 
+    @GetMapping("/")
+    public String getWelcome(){
+        return "Hello, World!";
+    }
+
     @GetMapping(value = "/{licenseId}")
     public ResponseEntity<License> getLicense(@PathVariable("organisationId") String organisationId, @PathVariable("licenseId") String licenseId){
         License license = licenseService.getLicense(licenseId, organisationId);
